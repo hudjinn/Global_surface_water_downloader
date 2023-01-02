@@ -53,12 +53,12 @@ for tipo in tipos:
         for ano in a:
             if tipo == 'yearlyClassification':
                 #exemplo: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GSWE/YearlyClassification/LATEST/tiles/yearlyClassification1984/yearlyClassification1984-0000000000-0000000000.tif
-                consulta = f'{ftp}YearlyClassification/LATEST/tiles/{tipo}{ano}/{tipo}{ano}-'
+                consulta = f'{ftp}YearlyClassification/LATEST/tiles/{tipo}{ano}/{tipo}{ano}_'
             if tipo == 'aggregated':
                 tipo_sec = ['change', 'extent', 'occurrence', 'recurrence', 'seasonality', 'transitions']
                 for tipo2 in tipo_sec:
                     #exemplo: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GSWE/Aggregated/LATEST/extent/tiles/
-                    consulta = f'{ftp}Aggregated/LATEST/{tipo2}/tiles/{tipo2}-'
+                    consulta = f'{ftp}Aggregated/LATEST/{tipo2}/tiles/{tipo2}_'
             if tipo == 'monthlyHistory':
                 #exemplo: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GSWE/
                 for m in months_range:
@@ -66,7 +66,7 @@ for tipo in tipos:
 
             url_img1 = consulta+img1
             url_img2 = consulta+img2
-            print(url_img1)https://jeodpp.jrc.ec.eur
+            print(url_img1)
             print(url_img2)
             if len(tipo_sec) == 0:
                 download1 = req.get(url_img1, allow_redirects=True)
